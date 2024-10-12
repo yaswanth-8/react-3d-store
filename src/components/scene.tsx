@@ -6,7 +6,7 @@ import { Room } from './room';
 // Main Scene Component
 function Scene() {
     return (
-        <div style={{ width: '100vw', height: '100vh' }}>
+        <div style={{ width: '100vw', height: '100vh', position: 'relative' }}>
             <Canvas camera={{ position: [10, 10, 10], fov: 75 }}>
                 <color attach="background" args={['#202020']} />
                 <ambientLight intensity={0.5} />
@@ -18,6 +18,20 @@ function Scene() {
                     maxPolarAngle={Math.PI / 2}  // Limits rotation to looking straight down
                 />
             </Canvas>
+
+            {/* UI Text Below Canvas */}
+            <div style={{
+                position: 'absolute',
+                bottom: '20px',
+                width: '100%',
+                textAlign: 'center',
+                fontSize: '18px',
+                color: 'white',
+                backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                padding: '10px'
+            }}>
+                Click on TV to turn it on. Click on objects to display the price on the TV.
+            </div>
         </div>
     );
 }

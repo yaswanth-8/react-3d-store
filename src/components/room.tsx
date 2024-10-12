@@ -11,14 +11,23 @@ export const Room = () =>{
     const glassColor = "#A8C8F0"
     const floorColor = "#c8c5c4"
 
-    const [tvDisplay, setTvDisplay] = useState('TV');
+    const [tvDisplay, setTvDisplay] = useState({
+        firstLine: '',
+        secondLine: ''
+    });
 
     const handlePotClick = () => {
-        setTvDisplay("Flower Pot")
+        setTvDisplay({
+            firstLine: 'Flower pot',
+            secondLine: 'Rs. 2'
+        })
     }
 
-    const handleBookClick = () => {
-        setTvDisplay("Book")
+    const handleObjectClick = (name, price) => {
+        setTvDisplay({
+            firstLine: name,
+            secondLine: price
+        })
     }
 
 
@@ -45,7 +54,10 @@ export const Room = () =>{
             </mesh>
 
             {/* Right Wall (Glass) */}
-            <mesh position={[5, 5, 0]} rotation={[0, -Math.PI / 2, 0]}>
+            <mesh position={[5, 5, 0]} rotation={[0, -Math.PI / 2, 0]} onClick={(event)=>{
+                event.stopPropagation();
+                handleObjectClick('Glass', 'Rs. 350')
+            }}>
                 <boxGeometry args={[10, 10, 0.15]} />
                 <meshStandardMaterial
                     color={glassColor}
@@ -61,13 +73,13 @@ export const Room = () =>{
                 <boxGeometry args={[10.5, 10, 0.1]} />
                 <meshStandardMaterial color="#fff4f0" />
             </mesh>
-            <RackWithBooks position={[1,1,-4.3]}/>
-            <TableAndBook handleClick={handleBookClick}/>
-            <TableAndBook handleClick={handleBookClick} position={[-4.12, 0, 1]} rotation={[0, 1.6, 0]} />
+            <RackWithBooks handleClick={handleObjectClick} position={[1,1,-4.3]}/>
+            <TableAndBook handleClick={handleObjectClick}/>
+            <TableAndBook handleClick={handleObjectClick} position={[-4.12, 0, 1]} rotation={[0, 1.6, 0]} />
             <mesh onClick={handlePotClick}>
                 <FlowerPot position={[-4.7 , 0.2, 5.5]}/> 
             </mesh>
-            <TV position={[-2, 4.2, -4.65]} displayText={tvDisplay} />
+            <TV position={[-2, 4.2, -4.65]} displayText={tvDisplay}/>
         </group>
     );
 }

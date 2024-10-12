@@ -2,7 +2,19 @@ import React, { useState } from 'react';
 import { Vector3 } from 'three';
 import { Text } from '@react-three/drei';
 
-export const TV = ({ position = [0, 0, 0], scale = 1, displayText }) => {
+interface TVDisplay {
+    firstLine: string;
+    secondLine: string;
+}
+
+interface TVProps {
+    position?: [number, number, number];
+    scale?: number;
+    displayText: TVDisplay; // Prop typed as TVDisplay
+}
+
+
+export const TV: React.FC<TVProps> = ({ position = [0, 0, 0], scale = 1, displayText }) => {
   const [screenColor, setScreenColor] = useState('gray'); 
   const [showText, setShowText] = useState(false); 
 
@@ -30,15 +42,26 @@ export const TV = ({ position = [0, 0, 0], scale = 1, displayText }) => {
 
       {/* Display text "TV" on the screen when clicked */}
       {showText && (
+        <>
         <Text
-          position={[0, 0.5, 0.12]} // Position the text slightly in front of the screen
+          position={[0, 0.8, 0.12]} // Position the text slightly in front of the screen
           fontSize={0.5} // Adjust the font size
           color="black" // Text color
           anchorX="center" // Horizontal anchor in the center of the text
           anchorY="middle" // Vertical anchor in the middle of the text
         >
-          {displayText}
+          {displayText.firstLine}
         </Text>
+        <Text
+        position={[0, 0.2, 0.12]} // Slightly lower on the Y axis for the second text
+        fontSize={0.3} // Smaller font size for the second text
+        color="black" // Text color
+        anchorX="center" // Horizontal anchor
+        anchorY="middle" // Vertical anchor
+      >
+        {displayText.secondLine} {/* Second string */}
+      </Text>
+      </>
       )}
     </mesh>
   );

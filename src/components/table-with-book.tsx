@@ -9,8 +9,16 @@ export const TableAndBook = ({ position = [0, 0, 0], rotation = [0, 0, 0], handl
 
     return (
         <group position={pos} rotation={rot}>
-            <Table />
-            <mesh onClick={handleClick}>
+            {/* Table mesh */}
+            <mesh onClick={() => handleClick('Table', 'Rs 150')}>
+                <Table />
+            </mesh>   
+            
+            {/* Book mesh with stopPropagation to prevent the table's click */}
+            <mesh onClick={(event) => {
+                event.stopPropagation(); // Stop the click event from reaching the table
+                handleClick('Book', 'Rs 80');
+            }}>
                 <Book />
             </mesh>
         </group>
