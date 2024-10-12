@@ -1,0 +1,11 @@
+Model Information:
+* title:	Classic table lamp
+* source:	https://sketchfab.com/3d-models/classic-table-lamp-1a3292317bb342b4b33431081338a5c3
+* author:	AndreiVNK (https://sketchfab.com/AndreiVNK)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Classic table lamp" (https://sketchfab.com/3d-models/classic-table-lamp-1a3292317bb342b4b33431081338a5c3) by AndreiVNK (https://sketchfab.com/AndreiVNK) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

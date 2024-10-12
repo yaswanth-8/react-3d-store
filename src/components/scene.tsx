@@ -2,6 +2,7 @@ import React from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import { Room } from './room';
+import { Books } from './custom_models/books';
 
 // Main Scene Component
 function Scene() {

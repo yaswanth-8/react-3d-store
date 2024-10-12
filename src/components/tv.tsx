@@ -45,7 +45,7 @@ export const TV: React.FC<TVProps> = ({ position = [0, 0, 0], scale = 1, display
         <>
         <Text
           position={[0, 0.8, 0.12]} // Position the text slightly in front of the screen
-          fontSize={0.5} // Adjust the font size
+          fontSize={0.4} // Adjust the font size
           color="black" // Text color
           anchorX="center" // Horizontal anchor in the center of the text
           anchorY="middle" // Vertical anchor in the middle of the text

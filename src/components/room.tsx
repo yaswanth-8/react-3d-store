@@ -3,6 +3,11 @@ import FlowerPot from "./flowerpot";
 import { TableAndBook } from "./table-with-book";
 import { RackWithBooks } from "./rack-with-books";
 import { TV } from "./tv";
+import { Books } from "./custom_models/books";
+import { Lamp } from "./custom_models/lamp";
+import { Chess } from "./custom_models/chess";
+import { Table } from "./table";
+import { HPToy } from "./custom_models/hp";
 
 // Room Component
 export const Room = () =>{
@@ -74,12 +79,16 @@ export const Room = () =>{
                 <meshStandardMaterial color="#fff4f0" />
             </mesh>
             <RackWithBooks handleClick={handleObjectClick} position={[1,1,-4.3]}/>
-            <TableAndBook handleClick={handleObjectClick}/>
-            <TableAndBook handleClick={handleObjectClick} position={[-4.12, 0, 1]} rotation={[0, 1.6, 0]} />
+            <Table/>
+            <TableAndBook handleClick={handleObjectClick} position={[-4.12, 0, 1]} rotation={[0, 1.6, 0]}/>
             <mesh onClick={handlePotClick}>
                 <FlowerPot position={[-4.7 , 0.2, 5.5]}/> 
             </mesh>
             <TV position={[-2, 4.2, -4.65]} displayText={tvDisplay}/>
+            <Books handleClick={handleObjectClick}/>
+            <Lamp handleClick={handleObjectClick}/>
+            <Chess handleClick={handleObjectClick} position={[0.1,1.55,0]}/>
+            <HPToy handleClick={handleObjectClick} position={[-4.2,2,1.5]}/>
         </group>
     );
 }

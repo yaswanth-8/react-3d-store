@@ -1,13 +1,15 @@
 import React from "react";
+import { Vector3 } from "three";
 
 // Table Component
-export const Table = () =>{
+export const Table = ({position=[0,0,0], tableColor="#5C4033"}) =>{
+    const pos = new Vector3(...position)
     return (
-        <group position={[0, 0, 0]}>
+        <group position={pos}>
             {/* Table Top */}
             <mesh position={[0, 1.5, 0]}>
                 <boxGeometry args={[2, 0.1, 1]} />
-                <meshStandardMaterial color="#5C4033" /> {/* Darker brown */}
+                <meshStandardMaterial color={tableColor} /> {/* Darker brown */}
             </mesh>
 
             {/* Table Legs */}
